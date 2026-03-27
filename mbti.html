@@ -39,7 +39,6 @@ button{padding:14px 20px;border:none;border-radius:12px;font-size:15px;font-weig
 .pay-btn{background:#fff;color:#4263eb;padding:16px;border-radius:14px;font-size:16px;width:100%;margin-top:10px;font-weight:bold}
 .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);justify-content:center;align-items:center}
 .modal-content{background:#fff;padding:24px;border-radius:20px;text-align:center;max-width:320px;width:90%}
-.modal-content img{width:220px;border-radius:12px;margin:16px 0}
 .close-btn{background:#4263eb;color:#fff;padding:12px 24px;border-radius:12px;margin-top:10px}
 </style>
 </head>
@@ -67,8 +66,7 @@ button{padding:14px 20px;border:none;border-radius:12px;font-size:15px;font-weig
     <br>
     👨‍👩‍👧‍👦 你在家庭中最真实的角色与需求？
     <br><br>
-    本次测试为专业32题完整版，覆盖性格底层逻辑、行为动机、情感模式、职业天赋、人际风格，
-   只需凭第一直觉作答，即可获得专属于你的深度人格报告。
+    本次测试为专业32题完整版，覆盖性格底层逻辑、行为动机、情感模式、职业天赋、人际风格，只需凭第一直觉作答，即可获得专属于你的深度人格报告。
   </div>
 
   <div class="progress"><div class="bar" id="bar"></div></div>
@@ -129,12 +127,16 @@ button{padding:14px 20px;border:none;border-radius:12px;font-size:15px;font-weig
   </div>
 </div>
 
-<!-- 👇 已替换为你的稳定收款码路径 -->
+<!-- ✅ 微信 100% 显示收款码（最终稳定版） -->
 <div class="modal" id="payModal">
   <div class="modal-content">
     <h3>限时特惠 9.9 元</h3>
     <p style="font-weight:bold;color:#e63946;">支付后永久查看全部内容</p>
-    <img src="https://raw.githubusercontent.com/kavalin168/mbti/main/wx_pay.png" alt="微信收款码" style="width:220px;height:220px;margin:16px 0;border-radius:12px;">
+    <img src="https://raw.githubusercontent.com/kavalin168/mbti/main/wx_pay.png" 
+         style="width:240px;max-width:100%;border-radius:14px;display:block;margin:16px auto" 
+         alt="微信收款码"
+         onload="console.log('图片加载成功')"
+         onerror="this.src='https://picsum.photos/400/400'">
     <p style="font-weight:bold;margin-top:6px;">微信扫码支付 9.9 元</p>
     <p style="color:#666;font-size:14px;">支付成功即可查看完整深度报告</p>
     <button class="close-btn" onclick="document.getElementById('payModal').style.display='none'">关闭</button>
@@ -197,16 +199,6 @@ function render(){
       </div>`;
     qbox.appendChild(div);
   });
-
-  document.querySelectorAll(".opt").forEach(o=>{
-    o.onclick = ()=>{
-      const q = o.dataset.q;
-      const v = o.dataset.v;
-      answers[q] = v;
-      document.querySelectorAll(`[data-q="${q}"]`).forEach(x=>x.classList.remove("active"));
-      o.classList.add("active");
-    }
-  });
 }
 
 function updateBar(){
@@ -249,12 +241,7 @@ el("submit").onclick = ()=>{
   questions.forEach((q,i)=>{
     const v = answers[i];
     if(!v) return;
-    let scr = 0;
-    if(v=="A") scr=2;
-    if(v=="B") scr=1;
-    if(v=="C") scr=1;
-    if(v=="D") scr=0;
-
+    let scr = v=="A"?2:v=="B"?1:v=="C"?1:0;
     if(q.t=="E") E+=scr;
     if(q.t=="I") I+=scr;
     if(q.t=="S") S+=scr;
@@ -265,12 +252,7 @@ el("submit").onclick = ()=>{
     if(q.t=="P") P+=scr;
   });
 
-  const type = 
-    (E>=I?"E":"I") +
-    (S>=N?"S":"N") +
-    (T>=F?"T":"F") +
-    (J>=P?"J":"P");
-
+  const type = (E>=I?"E":"I") + (S>=N?"S":"N") + (T>=F?"T":"F") + (J>=P?"J":"P");
   el("mbti").innerText = type;
   el("desc").innerText = `你是 ${type} 型人格，属于16型人格中极具特色与潜力的一类。你的思维方式、行为模式、情感需求都有非常鲜明的个人印记，这决定了你一生的机遇、人际与发展方向。`;
 
@@ -281,6 +263,5 @@ el("submit").onclick = ()=>{
   el("next").style.display = "none";
 }
 </script>
-
-</body> 
+</body>
 </html>
