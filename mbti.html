@@ -34,39 +34,6 @@ button{padding:14px 20px;border:none;border-radius:12px;font-size:15px;font-weig
 .free-part h4{margin-bottom:6px;color:#333;font-size:16px}
 .free-part p{line-height:1.7;color:#333}
 .pay-card{background:linear-gradient(135deg,#4263eb,#5a79f2);color:#fff;padding:24px;border-radius:18px;text-align:center;margin-top:30px}
-.pay-btn{background:#fff;color:#4263eb;padding:16px;border-radius:14px;font-size:16px;width:100%;margin-top:10px;font-weight:bold;border:none;cursor:pointer}
-
-/* 🔥 只修复这里：弹窗最强稳定样式 */
-.modal {
-  display: none !important;
-  position: fixed !important;
-  z-index: 999999 !important;
-  left: 0 !important;
-  top: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  background-color: rgba(0,0,0,0.8) !important;
-  justify-content: center !important;
-  align-items: center !important;
-}
-.modal-content {
-  background: white !important;
-  padding: 30px !important;
-  border-radius: 20px !important;
-  text-align: center !important;
-  max-width: 320px !important;
-  width: 90% !important;
-}
-.close-btn {
-  margin-top: 20px !important;
-  padding: 12px 24px !important;
-  background: #4263eb !important;
-  color: white !important;
-  border: none !important;
-  border-radius: 12px !important;
-  font-weight: bold !important;
-  cursor: pointer !important;
-}
 </style>
 </head>
 <body>
@@ -139,19 +106,14 @@ button{padding:14px 20px;border:none;border-radius:12px;font-size:15px;font-weig
       <h2>⚠️ 免费内容仅为30%，完整版需解锁</h2>
       <p>完整版包含：完整人格定位 + 职业方向 + 情感匹配 + 人生规划 + 成长建议</p>
       <p style="margin:10px 0;font-weight:bold;">金额：9.9 元</p>
-      <button class="pay-btn" onclick="openPayModal()">🔥 支付 9.9 元查看完整版</button>
-    </div>
-  </div>
-</div>
 
-<!-- 🔥 最终稳定弹窗（无图片、100%弹出、不被拦截） -->
-<div class="modal" id="payModal">
-  <div class="modal-content">
-    <h2>解锁完整报告</h2>
-    <p style="margin:14px 0; font-size:16px; font-weight:bold; color:#e63946">费用：9.9 元</p>
-    <p style="font-size:14px; color:#666">请添加客服微信获取收款码</p>
-    <p style="font-size:14px; color:#666">支付成功后自动查看全部内容</p>
-    <button class="close-btn" onclick="closePayModal()">关闭</button>
+      <div style="background:#fff;color:#e63946;padding:16px;border-radius:12px;margin-top:16px;font-weight:bold;">
+        请微信扫码支付 9.9 元<br>
+        支付成功后即可查看完整深度报告
+      </div>
+
+      <img src="wx_pay.png" style="width:200px;margin:14px auto;border-radius:10px;display:block;">
+    </div>
   </div>
 </div>
 
@@ -206,14 +168,6 @@ function render(){
 
 function updateBar(){
   el("bar").style.width = ((current+1)/questions.length)*100+"%";
-}
-
-// 🔥 最强弹窗方法（绝对能弹出）
-function openPayModal() {
-  document.getElementById("payModal").style.display = "flex";
-}
-function closePayModal() {
-  document.getElementById("payModal").style.display = "none";
 }
 
 render();
