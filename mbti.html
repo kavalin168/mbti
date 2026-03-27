@@ -1,82 +1,75 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MBTI 16型人格专业测试 - 全球权威心理学系统</title>
-  <meta property="og:title" content="MBTI 16型人格专业测试">
-  <meta property="og:description" content="全球500强企业都在用的人格测评系统，精准解析你的天赋、性格、事业、爱情、未来！">
-  <meta property="og:image" content="https://picsum.photos/600/400">
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,'Microsoft YaHei',sans-serif}
-    body{background:#f8f9ff;padding:20px;color:#222}
-    .container{max-width:720px;margin:0 auto;background:#fff;border-radius:24px;box-shadow:0 12px 40px rgba(0,80,255,0.08);padding:35px;overflow:hidden}
-    .header{text-align:center;margin-bottom:30px}
-    .header h1{font-size:28px;color:#2d4ae8;margin-bottom:12px}
-    .header p{color:#555;font-size:16px;line-height:1.7}
-    .intro{background:linear-gradient(135deg,#eef5ff,#f6f9ff);padding:22px;border-radius:18px;margin-bottom:30px;line-height:1.8;font-size:15px;color:#333}
-    .progress{width:100%;height:10px;background:#eee;border-radius:10px;margin-bottom:25px}
-    .bar{height:100%;background:linear-gradient(90deg,#2d4ae8,#6a51ff);width:0%;border-radius:10px;transition:.3s}
-    .question{display:none;padding:10px 0}
-    .question.active{display:block}
-    .q-title{font-size:19px;font-weight:500;margin-bottom:22px;line-height:1.6}
-    .options{display:flex;flex-direction:column;gap:14px}
-    .opt{padding:18px 22px;border:2px solid #eee;border-radius:16px;background:#fcfcfc;cursor:pointer}
-    .opt.active{border-color:#2d4ae8;background:#eef3ff}
-    .nav{display:flex;justify-content:space-between;margin-top:32px}
-    button{padding:15px 24px;border:none;border-radius:14px;font-size:16px;font-weight:bold;cursor:pointer}
-    .prev{background:#eee;color:#555}
-    .next{background:#2d4ae8;color:#fff}
-    .submit{background:#6a51ff;color:#fff;width:100%;margin-top:20px;display:none}
-    .result{display:none;padding:20px 0}
-    .result-title{text-align:center;font-size:24px;color:#222;margin-bottom:10px}
-    .type{text-align:center;font-size:40px;font-weight:bold;color:#2d4ae8;margin:10px 0 25px}
-    .result-box{background:#f5f9ff;padding:24px;border-radius:18px;margin-bottom:20px}
-    .result-box h3{margin-bottom:12px;color:#2d4ae8;font-size:18px}
-    .result-box p{line-height:1.8;color:#333;font-size:15px}
-    .free-content{margin-top:10px}
-    .free-content h4{margin:8px 0 5px;color:#444}
-    .free-content p{line-height:1.7}
-    .pay-card{background:linear-gradient(135deg,#6a51ff,#2d4ae8);color:#fff;padding:30px;border-radius:22px;text-align:center;margin-top:35px}
-    .pay-card h2{margin-bottom:12px}
-    .pay-card p{margin-bottom:22px;opacity:.95;line-height:1.7}
-    .pay-btn{background:#fff;color:#6a51ff;padding:18px 30px;border-radius:16px;font-size:18px;width:100%}
-    .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.65);justify-content:center;align-items:center}
-    .modal-content{background:#fff;padding:25px;border-radius:22px;max-width:340px;text-align:center}
-    .modal-content img{width:240px;border-radius:14px;margin-bottom:18px}
-    .modal-content p{color:#555;margin-bottom:18px}
-    .close-btn{background:#2d4ae8;color:#fff;padding:12px 24px;border-radius:12px}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MBTI 16型人格专业测试 - 全球权威心理学系统</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:微软雅黑,sans-serif}
+body{background:#f8f9ff;padding:20px;color:#222}
+.container{max-width:720px;margin:0 auto;background:#fff;border-radius:24px;padding:35px;box-shadow:0 12px 40px rgba(0,80,255,0.08)}
+.header{text-align:center;margin-bottom:30px}
+.header h1{font-size:28px;color:#2d4ae8;margin-bottom:12px}
+.header p{color:#555;font-size:16px}
+.intro{background:linear-gradient(135deg,#eef5ff,#f6f9ff);padding:22px;border-radius:18px;margin-bottom:30px;line-height:1.8}
+.progress{width:100%;height:10px;background:#eee;border-radius:10px;margin-bottom:25px}
+.bar{height:100%;background:linear-gradient(90deg,#2d4ae8,#6a51ff);width:0%;border-radius:10px;transition:.3s}
+.question{display:none;padding:10px 0}
+.question.active{display:block}
+.q-title{font-size:19px;margin-bottom:22px;line-height:1.6}
+.options{display:flex;flex-direction:column;gap:14px}
+.opt{padding:18px;border:2px solid #eee;border-radius:16px;cursor:pointer}
+.opt.active{border-color:#2d4ae8;background:#eef3ff}
+.nav{display:flex;justify-content:space-between;margin-top:32px}
+button{padding:15px 24px;border:none;border-radius:14px;font-size:16px;font-weight:bold}
+.prev{background:#eee}
+.next{background:#2d4ae8;color:#fff}
+.submit{background:#6a51ff;color:#fff;width:100%;margin-top:20px;display:none}
+.result{display:none;padding:20px 0}
+.result-title{text-align:center;font-size:24px;margin-bottom:10px}
+.type{text-align:center;font-size:40px;font-weight:bold;color:#2d4ae8;margin:10px 0 25px}
+.result-box{background:#f5f9ff;padding:24px;border-radius:18px;margin-bottom:20px}
+.result-box h3{margin-bottom:12px;color:#2d4ae8}
+.free-content h4{margin:8px 0 5px;color:#444}
+.free-content p{line-height:1.7}
+.pay-card{background:linear-gradient(135deg,#6a51ff,#2d4ae8);color:#fff;padding:30px;border-radius:22px;text-align:center;margin-top:35px}
+.pay-btn{background:#fff;color:#6a51ff;padding:18px;border-radius:16px;font-size:18px;width:100%;margin-top:10px}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.65);justify-content:center;align-items:center}
+.modal-content{background:#fff;padding:25px;border-radius:22px;text-align:center}
+.modal-content img{width:240px;border-radius:14px;margin:15px 0}
+.close-btn{background:#2d4ae8;color:#fff;padding:12px 24px;border-radius:12px;margin-top:10px}
+</style>
 </head>
 <body>
+
 <div class="container">
   <div class="header">
     <h1>MBTI 16型人格专业测评系统</h1>
-    <p>全球公认最精准的人格心理学测试 | 超过 2 亿人验证</p>
+    <p>全球公认最精准的人格心理学测试 | 超过2亿人验证 | 500强企业人才评估标准</p>
   </div>
 
   <div class="intro">
-    <strong>【测试介绍】</strong><br>
-    MBTI 是全球最权威、最科学的人格测评系统，被世界 500 强企业、哈佛大学、斯坦福大学广泛使用。
-    它能精准揭示你的<b>天赋优势、性格内核、事业方向、爱情匹配、家庭相处模式、人生短板</b>，
-    让你真正看懂自己、读懂他人、把握未来、少走 10 年弯路！
-    本测试为 32 题专业完整版，结果准确度高达 97%，请凭第一直觉真实作答。
+    <strong>【专业测试介绍】</strong><br>
+    MBTI是当今全球最权威、最科学、最具深度的人格测评体系，被世界500强企业、哈佛、斯坦福等顶尖名校广泛应用于人才评估、职业规划与心理成长。
+    它能穿透表象，精准揭示你的<b>底层性格逻辑、天赋优势、事业赛道、爱情匹配模式、家庭相处方式、人生短板与未来发展方向</b>。
+    一次测试，终身受益，让你少走10年弯路，真正看懂自己、读懂他人！
+    <br><br>
+    本测试为32题专业完整版，结果准确度高达97%，请凭第一直觉真实作答。
   </div>
 
   <div class="progress"><div class="bar" id="bar"></div></div>
-
   <div id="questions"></div>
 
   <div class="nav">
     <button class="prev" id="prev">上一题</button>
     <button class="next" id="next">下一题</button>
   </div>
-  <button class="submit" id="submit">生成专业报告</button>
+  <button class="submit" id="submit">立即生成专属报告</button>
 
   <div class="result" id="result">
     <div class="result-title">你的专属人格类型</div>
     <div class="type" id="mbti"></div>
-    
+
     <div class="result-box">
       <h3>📌 基础性格解析（免费查看）</h3>
       <p id="desc"></p>
@@ -85,36 +78,45 @@
     <div class="result-box">
       <h3>📊 免费版详细分析（可公开查看）</h3>
       <div class="free-content">
-        <h4>🔹 性格特质</h4>
-        <p>你拥有独特的思维方式与行为模式，待人真诚、做事专注，在人群中拥有不可替代的气质。</p>
+        <h4>🔹 性格核心</h4>
+        <p>你拥有独特的思维方式与行为风格，内在细腻而坚定，在人群中拥有鲜明辨识度，不轻易被外界左右。你对自我认知清晰，擅长在复杂环境中保持本心。</p>
 
         <h4>🔹 事业天赋</h4>
-        <p>你在某些领域天生具备优势，学习能力强、洞察力敏锐，适合需要深度思考与创造力的工作。</p>
+        <p>你在特定领域具备天然优势，洞察力强、学习速度快，适合需要深度思考、创造力或责任心的岗位。你的专注力与执行力，能让你在专业领域快速脱颖而出。</p>
 
         <h4>🔹 爱情模式</h4>
-        <p>你在感情中认真且专一，重视安全感与精神共鸣，喜欢稳定、温暖、长久的关系。</p>
+        <p>你在感情中认真专一，重视精神共鸣与安全感，喜欢稳定、真诚、长久的亲密关系。你懂得倾听与包容，是伴侣眼中可靠、温暖、值得依赖的存在。</p>
 
-        <h4>🔹 家庭相处</h4>
-        <p>你重视家人、懂得包容，在亲密关系中愿意付出，是家庭里可靠、温暖、值得依赖的人。</p>
+        <h4>🔹 家庭生活</h4>
+        <p>你重视亲情、懂得包容，愿意为家人付出与承担，是家庭中可靠、温暖、值得信赖的存在。你擅长调节家庭氛围，让家人感受到温暖与归属感。</p>
 
         <h4>🔹 核心优势</h4>
-        <p>你拥有强大的学习力、共情力与判断力，这些天赋会在未来人生中持续为你创造价值。</p>
+        <p>你拥有强大的学习力、共情力与判断力，这些天赋会在未来人生中持续为你创造价值。你总能在关键时刻做出最适合自己的选择，把握人生机遇。</p>
       </div>
     </div>
 
     <div class="pay-card">
-      <h2>🔓 解锁完整版专业报告</h2>
-      <p>付费解锁：完整人格深度解析 + 最佳职业方向 + 爱情匹配指南 + 家庭沟通技巧 + 人生成长建议 + 潜在弱点规避</p>
-      <button class="pay-btn" onclick="document.getElementById('payModal').style.display='flex'">立即支付 9.9 元解锁全部</button>
+      <h2>⚠️ 免费内容仅为10%，完整版即将关闭</h2>
+      <p>免费版仅展示基础内容，完整版包含：<br>
+      ✅ 完整人格深度剖析（含隐藏性格）<br>
+      ✅ 最佳职业方向与行业推荐<br>
+      ✅ 爱情匹配指南（适合你的伴侣类型）<br>
+      ✅ 家庭沟通技巧与相处模式<br>
+      ✅ 人生成长建议与潜在弱点规避<br>
+      ✅ 专属人生发展路径规划</p>
+      <p style="margin:10px 0;color:#ffef99;font-weight:bold;">限时特惠 9.9 元，随时恢复原价 99 元</p>
+      <button class="pay-btn" onclick="document.getElementById('payModal').style.display='flex'">🔥 立即解锁完整报告</button>
     </div>
   </div>
 </div>
 
 <div class="modal" id="payModal">
   <div class="modal-content">
-    <h3>微信扫码支付 9.9 元</h3>
-    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/0bf0c9594bda4f7192013d2759b57a54.jpg" alt="微信收款码">
-    <p>支付成功后即可查看完整报告</p>
+    <h3>⚠️ 限时特惠：9.9 元</h3>
+    <p style="color:#e63946;font-weight:bold;margin-bottom:10px;">支付后自动解锁全部内容，永不丢失</p>
+    <img src="https://p.qqaks.cn/img/2025/09/27/66f5d2a8e3b09.png" alt="收款码">
+    <p style="font-weight:bold;margin-top:5px;">扫码支付 9.9 元</p>
+    <p style="color:#666;margin-top:5px;">支付成功即可查看完整深度报告</p>
     <button class="close-btn" onclick="document.getElementById('payModal').style.display='none'">关闭</button>
   </div>
 </div>
@@ -155,7 +157,7 @@ const questions = [
   {q:"你重视直觉、预感与灵感",a:"是",b:"一般",c:"否",t:"N"}
 ];
 
-const el = (id) => document.getElementById(id);
+const el = id => document.getElementById(id);
 let current = 0;
 let answers = [];
 
@@ -171,22 +173,20 @@ function render(){
         <div class="opt" data-v="A">✅ ${item.a}</div>
         <div class="opt" data-v="B">⚪ ${item.b}</div>
         <div class="opt" data-v="C">❌ ${item.c}</div>
-      </div>
-    `;
+      </div>`;
     qbox.appendChild(div);
   });
-
   document.querySelectorAll(".opt").forEach(o=>{
     o.onclick = ()=>{
       o.parentElement.querySelectorAll(".opt").forEach(x=>x.classList.remove("active"));
       o.classList.add("active");
-      answers[current] = o.getAttribute("data-v");
+      answers[current] = o.dataset.v;
     }
   });
 }
 
 function updateBar(){
-  el("bar").style.width = ((current+1)/questions.length)*100 + "%";
+  el("bar").style.width = ((current+1)/questions.length)*100+"%";
 }
 
 render();
@@ -207,7 +207,7 @@ el("next").onclick = ()=>{
 }
 
 el("prev").onclick = ()=>{
-  if(current > 0){
+  if(current>0){
     document.querySelectorAll(".question")[current].classList.remove("active");
     current--;
     document.querySelectorAll(".question")[current].classList.add("active");
@@ -220,15 +220,16 @@ el("prev").onclick = ()=>{
 el("submit").onclick = ()=>{
   let E=0,I=0,S=0,N=0,T=0,F=0,J=0,P=0;
   questions.forEach((q,i)=>{
-    const t = q.t;
-    if(answers[i] == "A"){
-      if(t=="E")E++;if(t=="I")I++;if(t=="S")S++;if(t=="N")N++;
-      if(t=="T")T++;if(t=="F")F++;if(t=="J")J++;if(t=="P")P++;
+    if(answers[i]=="A"){
+      if(q.t=="E")E++; if(q.t=="I")I++;
+      if(q.t=="S")S++; if(q.t=="N")N++;
+      if(q.t=="T")T++; if(q.t=="F")F++;
+      if(q.t=="J")J++; if(q.t=="P")P++;
     }
   });
   const type = (E>I?"E":"I")+(S>N?"S":"N")+(T>F?"T":"F")+(J>P?"J":"P");
   el("mbti").innerText = type;
-  el("desc").innerText = `你是 ${type} 型人格，属于MBTI 16型人格中极具天赋与魅力的类型，拥有独特的思维模式、行为风格与人生轨迹。`;
+  el("desc").innerText = `你是 ${type} 型人格，属于MBTI16型人格中极具特色与天赋的类型，思维、行为与情感模式都极具辨识度。`;
   el("result").style.display = "block";
   el("questions").style.display = "none";
   el("submit").style.display = "none";
