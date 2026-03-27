@@ -113,7 +113,9 @@ button{padding:14px 20px;border:none;border-radius:12px;font-size:15px;font-weig
       </div>
 
       <div style="margin-top:20px;">
-        <img src="wx_pay.png" style="width:320px;display:block;margin:0 auto;border-radius:12px;">
+      
+        <img src="b7da739692be4dbd978aed56dc631fb2.png" style="width:320px;display:block;margin:0 auto;border-radius:12px;">
+        
         <p style="margin-top:10px;font-size:15px;">微信扫码支付 1.9 元</p>
         <p style="font-size:14px;margin-top:4px;">支付成功后即可查看完整深度报告</p>
       </div>
