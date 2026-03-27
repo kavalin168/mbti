@@ -114,9 +114,9 @@ button{padding:14px 20px;border:none;border-radius:12px;font-size:15px;font-weig
 
       <div style="margin-top:20px;">
         <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/5076a28c00e74c49bf7bc0c2e1de2864.png" 
-        style="width:280px; display:block; margin:0 auto; border-radius:12px;">
+        style="width:320px; display:block; margin:0 auto; border-radius:12px;">
         <p style="margin-top:10px; font-size:15px;">微信扫码支付 1.9 元</p>
-        <p style="font-size:14px; margin-top:4px;">支付成功后即可查看完整深度报告</p>
+        <p style="font-size:14px; margin-top:4px;">支付成功后自动解锁完整报告</p>
       </div>
     </div>
   </div>
