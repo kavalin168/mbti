@@ -113,9 +113,8 @@ button{padding:14px 20px;border:none;border-radius:12px;font-size:15px;font-weig
       </div>
 
       <div style="margin-top:20px;">
-      
-        <img src="b7da739692be4dbd978aed56dc631fb2.png" style="width:320px;display:block;margin:0 auto;border-radius:12px;">
-        
+        <!-- 关键修复：绝对路径 + 版本戳 -->
+        <img src="https://你的真实域名/收款码文件名.png?v=20260327" style="width:320px;display:block;margin:0 auto;border-radius:12px;" alt="微信收款码">
         <p style="margin-top:10px;font-size:15px;">微信扫码支付 1.9 元</p>
         <p style="font-size:14px;margin-top:4px;">支付成功后即可查看完整深度报告</p>
       </div>
