@@ -103,16 +103,21 @@ button{padding:14px 20px;border:none;border-radius:12px;font-size:15px;font-weig
     </div>
 
     <div class="pay-card">
-      <h2>⚠️ 免费内容仅为30%，完整版需解锁</h2>
-      <p>完整版包含：完整人格定位 + 职业方向 + 情感匹配 + 人生规划 + 成长建议</p>
-      <p style="margin:10px 0;font-weight:bold;">金额：9.9 元</p>
+      <h2>🔥 限时特惠 · 支付解锁完整版报告</h2>
+      <p style="margin-top:8px;">完整版包含：完整人格定位 + 职业方向 + 情感匹配 + 人生规划 + 成长建议</p>
 
-      <div style="background:#fff;color:#e63946;padding:16px;border-radius:12px;margin-top:16px;font-weight:bold;">
-        请微信扫码支付 9.9 元<br>
-        支付成功后即可查看完整深度报告
+      <div style="background:#fff;color:#333;padding:16px;border-radius:12px;margin-top:16px;font-weight:bold;">
+        <div style="font-size:14px; color:#999; text-decoration:line-through;">原价 99 元</div>
+        <div style="font-size:22px; color:#e63946; margin:4px 0;">限时活动价：1.9 元</div>
+        <div style="font-size:13px; color:#666; margin-top:4px;">限时特惠 · 随时恢复原价</div>
       </div>
 
-      <img src="wx_pay.png" style="width:200px;margin:14px auto;border-radius:10px;display:block;">
+      <div style="margin-top:20px;">
+        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/5076a28c00e74c49bf7bc0c2e1de2864.png" 
+        style="width:280px; display:block; margin:0 auto; border-radius:12px;">
+        <p style="margin-top:10px; font-size:15px;">微信扫码支付 1.9 元</p>
+        <p style="font-size:14px; margin-top:4px;">支付成功后即可查看完整深度报告</p>
+      </div>
     </div>
   </div>
 </div>
